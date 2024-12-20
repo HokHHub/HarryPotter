@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" type="module" defer></script>
+</head>
+
+<body>
+    <main>
+        <header class="header">
+            <div class="container">
+                <h1 class="header__title">Harry Potter</h1>
+                <p class="header__text">View all characters from the Harry Potter universe</p>
+                <div class="search">
+                    <div class="search__texts texts">
+                        <p class="texts__filter">Name</p>
+                        <p class="texts__filter texts__filter_last">School</p>
+
+                    </div>
+                    <form class="form" action="POST">
+                        <input class="form__input" type="text" placeholder="Hermione" id="input">
+                        <div>
+                            <p class="texts__filter texts__filter_mobile">School</p>
+                            <select class="form__select" name="selectSchool" id="" value="Choose One">
+                                <option value="" disabled selected>Choose One</option>
+                                <option value="Gryffindor">Gryffindor</option>
+                                <option value="Hufflepuff">Hufflepuff</option>
+                                <option value="Ravenclaw">Ravenclawr</option>
+                                <option value="Slytherin">Slytherin</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr class="header__hr">
+        </header>
+
+        <div class="main-block">
+            <div class="container">
+                <div class="cards">
+                    <!-- <article class="cards__card card">
+                        <img class="card__img" src="./images/hermione.jpg" alt="Гермиона">
+                        <p class="card__text">
+                            <span class="card__text_name">Hermione Granger</span><br>
+                            Actor: Emma Watson <br>
+                            Gender: female <br>
+                            House: Gryffindor <br>
+                            Wand core: dragon heartstring <br>
+                            Alive: yes
+                        </p>
+                    </article>
+
+                    <article class="cards__card card">
+                        <img class="card__img" src="./images/malfoy.jpg" alt="Гермиона">
+                        <p class="card__text">
+                            <span class="card__text_name">Draco Malfoy</span><br>
+                            Actor: Tom Felton <br>
+                            Gender: male <br>
+                            House: Slytherin <br>
+                            Wand core: unicorn tail-hair <br>
+                            Alive: yes <br>
+                        </p>
+                    </article>
+
+                    <article class="cards__card card">
+                        <img class="card__img" src="./images/hermione.jpg" alt="Гермиона">
+                        <p class="card__text">
+                            <span class="card__text_name">Hermione Granger</span><br>
+                            Actor: Emma Watson <br>
+                            Gender: female <br>
+                            House: Gryffindor <br>
+                            Wand core: dragon heartstring <br>
+                            Alive: yes
+                        </p>
+                    </article> -->
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
