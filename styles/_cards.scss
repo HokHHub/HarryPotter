@@ -8,7 +8,7 @@
 
 .card {
     width: 334px;
-    height: 409px;
+    height: 618px;
     flex-shrink: 0;
     border-radius: 4px;
     border: 1px solid var(--Stroke-light, #DEE2E6);
@@ -16,8 +16,10 @@
 
     &__img {
         width: 334px;
-        height: 192px;
+        height: 402px;
         flex-shrink: 0;
+        object-fit: cover;
+        object-position: center;
         border-radius: 4px 4px 0px 0px;
         display: block;
     }
@@ -45,11 +47,12 @@
     }
 }
 
+
 @media screen and (max-width: 767px) {
     .card {
         max-width: 320px;
 
-        &__img{
+        &__img {
             width: 320px;
         }
     }
@@ -59,7 +62,7 @@
     .card {
         max-width: 270px;
 
-        &__img{
+        &__img {
             width: 270px;
         }
     }

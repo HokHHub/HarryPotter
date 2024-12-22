@@ -1,9 +1,19 @@
+
 import { data } from './data.js';
 let dataCopy = []
 let section = document.querySelector('.cards')
 let form = document.querySelector('.form')
 let input = document.querySelector('#input')
 let select = document.querySelector('.form__select')
+function search(filter) {
+    for (let index = 0; index < data.length; index++) {
+        if (String(data[index][filter]).toLowerCase().includes(input.value.toLowerCase()) && String(data[index]['house']).toLowerCase().includes((select.value).toLowerCase())) {
+            dataCopy[0] = data[index]
+            addNewCard(dataCopy, 0)
+        }
+    }
+}
+
 
 
 let addNewCard = (data, index) => {
@@ -15,7 +25,7 @@ let addNewCard = (data, index) => {
     }
     newCard.innerHTML =
         `<article class="cards__card card">
-        <img class="card__img" src="${data[index].image}" alt="Гермиона">
+        <img class="card__img" src="${data[index].image}" alt="${data[index].name}">
         <p class="card__text">
             <span class="card__text_name">${data[index].name}</span><br>
             Actor: ${data[index].actor} <br>
@@ -31,16 +41,6 @@ let addNewCard = (data, index) => {
 if (input.value === '') {
     for (let i = 0; i < data.length; i++) {
         addNewCard(data, i)
-    }
-}
-
-function search(filter) {
-    for (let index = 0; index < data.length; index++) {
-
-        if (String(data[index][filter]).toLowerCase().includes(input.value.toLowerCase())) {
-            dataCopy[0] = data[index]
-            addNewCard(dataCopy, 0)
-        }
     }
 }
 

@@ -85,11 +85,15 @@
         padding-left: 17.22px;
         flex-shrink: 0;
         color: var(--Secondary-Light-Color, #ABB5BE);
+
+        &::placeholder {
+            color: var(--Secondary-Light-Color, #ABB5BE);
+        }
     }
 
     &__select {
         appearance: none;
-        background: url(/chevron-down.svg) no-repeat right;
+        background: url(/chevron-down.svg) no-repeat right #fff;
         background-position-x: calc(100% - 12px);
         border-radius: 4px;
         color: var(--Secondary-Light-Color, #ABB5BE);
@@ -100,7 +104,7 @@
         line-height: 21px;
         /* 131.25% */
         border: 1px solid #CED4DA;
-        background: #FFF;
+        // background: #FFF;
         width: 201px;
         padding-left: 15px;
         height: 38px;
