@@ -2,6 +2,12 @@
     padding-top: 64px;
     margin: 0 auto;
 
+    &__liked {
+        padding-top: 40px;
+        margin: 0 auto;
+
+    }
+
     &__hr {
         margin: 0;
         border: 0;
@@ -19,6 +25,17 @@
         font-weight: 700;
         line-height: normal;
         letter-spacing: -1.28px;
+
+        &_liked {
+            margin-top: 48px;
+            color: #000;
+            font-family: 'Inter';
+            font-size: 64px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            letter-spacing: -1.28px;
+        }
     }
 
     &__text {
@@ -151,6 +168,17 @@
             line-height: normal;
         }
 
+        &__title_liked {
+            font-size: 52px;
+            color: #000;
+            /* Diplay / Heading-4 - Semibold */
+            font-family: 'Inter';
+            font-size: 52px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+        }
+
         &__text {
             line-height: 28px;
             /* 175% */
@@ -162,6 +190,10 @@
 @media screen and (max-width: 375px) {
     .header {
         &__title {
+            font-size: 40px;
+        }
+
+        &__title_liked {
             font-size: 40px;
         }
     }

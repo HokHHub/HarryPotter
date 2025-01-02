@@ -1,0 +1,59 @@
+.liked {
+    cursor: pointer;
+    position: fixed;
+    text-decoration: none;
+    bottom: 23px;
+    right: 40px;
+    border: 0;
+    display: flex;
+    align-items: center;
+    width: 157px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 48px;
+    background: #FFF;
+    /* Large-Shadow */
+    box-shadow: 0px 8px 35px 0px rgba(0, 0, 0, 0.16);
+
+    &__svg {
+        margin-left: 13px;
+        margin-right: 12px;
+    }
+
+    &__text {
+        text-decoration: none;
+        color: #3F444A;
+        /* Body/ Base text */
+        font-family: 'Inter';
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 28px;
+        /* 175% */
+    }
+}
+
+.empty {
+    color: #000;
+    /* Body/ Base text */
+    font-family: 'Inter';
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+}
+
+.return__link {
+    color: #3F444A;
+    font-family: 'Inter';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    /* 175% */
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-thickness: auto;
+    text-underline-offset: auto;
+    text-underline-position: from-font;
+}

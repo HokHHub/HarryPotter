@@ -30,6 +30,10 @@ html {
   padding-top: 64px;
   margin: 0 auto;
 }
+.header__liked {
+  padding-top: 40px;
+  margin: 0 auto;
+}
 .header__hr {
   margin: 0;
   border: 0;
@@ -39,6 +43,16 @@ html {
 }
 .header__title {
   margin: 0;
+  color: #000;
+  font-family: "Inter";
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -1.28px;
+}
+.header__title_liked {
+  margin-top: 48px;
   color: #000;
   font-family: "Inter";
   font-size: 64px;
@@ -161,6 +175,16 @@ html {
     font-weight: 700;
     line-height: normal;
   }
+  .header__title_liked {
+    font-size: 52px;
+    color: #000;
+    /* Diplay / Heading-4 - Semibold */
+    font-family: "Inter";
+    font-size: 52px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
   .header__text {
     line-height: 28px;
     /* 175% */
@@ -171,6 +195,9 @@ html {
   .header__title {
     font-size: 40px;
   }
+  .header__title_liked {
+    font-size: 40px;
+  }
 }
 .cards {
   gap: 20px;
@@ -179,8 +206,33 @@ html {
   grid-template-columns: repeat(auto-fill, minmax(334px, 1fr));
 }
 
+.cards__liked {
+  gap: 20px;
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(334px, 1fr));
+}
+.cards__liked_empty {
+  display: flex;
+}
+
+.heart-fill {
+  fill: transparent;
+  stroke: #DC3545;
+  transition: fill 0.5s ease-in-out;
+}
+
+.card__like_click .heart-fill {
+  fill: #DC3545;
+}
+
+.card__like_declick .heart-fill {
+  fill: none;
+}
+
 .card {
   width: 334px;
+  position: relative;
   height: 618px;
   flex-shrink: 0;
   border-radius: 4px;
@@ -197,6 +249,11 @@ html {
      object-position: center;
   border-radius: 4px 4px 0px 0px;
   display: block;
+}
+.card__like {
+  position: absolute;
+  top: 0;
+  right: -23px;
 }
 .card__text {
   padding: 24px 25px 24px 24px;
@@ -237,4 +294,61 @@ html {
   .cards {
     justify-items: start;
   }
+}
+.liked {
+  cursor: pointer;
+  position: fixed;
+  text-decoration: none;
+  bottom: 23px;
+  right: 40px;
+  border: 0;
+  display: flex;
+  align-items: center;
+  width: 157px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 48px;
+  background: #FFF;
+  /* Large-Shadow */
+  box-shadow: 0px 8px 35px 0px rgba(0, 0, 0, 0.16);
+}
+.liked__svg {
+  margin-left: 13px;
+  margin-right: 12px;
+}
+.liked__text {
+  text-decoration: none;
+  color: #3F444A;
+  /* Body/ Base text */
+  font-family: "Inter";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  /* 175% */
+}
+
+.empty {
+  color: #000;
+  /* Body/ Base text */
+  font-family: "Inter";
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+}
+
+.return__link {
+  color: #3F444A;
+  font-family: "Inter";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  /* 175% */
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
 }/*# sourceMappingURL=style.css.map */

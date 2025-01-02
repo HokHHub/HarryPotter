@@ -1,18 +1,16 @@
 import { data } from './data.js';
 let dataCopy = []
-let section = document.querySelector('.cards')
-let form = document.querySelector('.form')
+let section = document.querySelector('.cards__liked')
 let input = document.querySelector('#input')
 let select = document.querySelector('.form__select')
 let save = []
 let localStorage = window.localStorage
-let sectionLiked = document.querySelector('.cards__liked')
 
 if (localStorage.getItem('cards') != undefined) {
 
-    save = JSON.parse(localStorage.getItem('cards'))
-    for (let index = 0; index < save.length; index++) {
-        // console.log(cards);
+    let cards = JSON.parse(localStorage.getItem('cards'))
+    for (let index = 0; index < cards.length; index++) {
+        console.log(cards);
         console.log(index);
 
 
@@ -24,21 +22,6 @@ if (localStorage.getItem('cards') != undefined) {
     }
 }
 
-function search(filter) {
-    for (let index = 0; index < data.length; index++) {
-        if (String(data[index][filter]).toLowerCase().includes(input.value.toLowerCase()) && String(data[index]['house']).toLowerCase().includes((select.value).toLowerCase())) {
-            let cards = JSON.parse(localStorage.getItem('cards'))
-            dataCopy[0] = data[index]
-            if (cards[index] != undefined && cards[index] != null) {
-                addNewCard(dataCopy, 0, cards[index]['like'])
-            } else {
-                addNewCard(dataCopy, 0)
-            }
-        }
-
-    }
-}
-
 function attachLikeEvent(likebtn, name, index) {
     if (localStorage.getItem('cards') != undefined) {
         if (localStorage.getItem('cards').includes(name)) {
@@ -47,14 +30,13 @@ function attachLikeEvent(likebtn, name, index) {
                 console.log(likebtn);
                 likebtn.classList.remove('card__like_click')
                 likebtn.classList.add('card__like_declick')
-                let path = document.querySelectorAll('.path')
-                path[index].classList.add('heart-fill')
                 let lsParse = JSON.parse(localStorage.cards)
                 for (let i = 0; i < lsParse.length; i++) {
                     save[i] = lsParse[i]                    
                 }
                 delete save[index]
                 console.log(save, 'edit');
+                
                 localStorage.setItem('cards', JSON.stringify(save))
             })
         } else {
@@ -97,7 +79,7 @@ function addNewCard(data, index, liked) {
             <g id="Ellipse 1" filter="url(#filter0_d_2536_1008)">
             <circle cx="59" cy="51" r="24" fill="white"/>
             </g>
-            <path class='path' id="Vector" fill-rule="evenodd" clip-rule="evenodd" d="M58.9997 41.9711C65.6567 35.1281 82.3007 47.1026 58.9997 62.5001C35.6987 47.1041 52.3427 35.1281 58.9997 41.9711Z" fill="#DC3545"/>
+            <path id="Vector" fill-rule="evenodd" clip-rule="evenodd" d="M58.9997 41.9711C65.6567 35.1281 82.3007 47.1026 58.9997 62.5001C35.6987 47.1041 52.3427 35.1281 58.9997 41.9711Z" fill="#DC3545"/>
             </g>
             <defs>
             <filter id="filter0_d_2536_1008" x="0" y="0" width="118" height="118" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
@@ -129,7 +111,7 @@ function addNewCard(data, index, liked) {
             <g id="Ellipse 1" filter="url(#filter0_d_2536_1008)">
             <circle cx="59" cy="51" r="24" fill="white"/>
             </g>
-            <path class='path heart-fill' id="Vector" fill-rule="evenodd" clip-rule="evenodd" d="M58.9997 41.9711C65.6567 35.1281 82.3007 47.1026 58.9997 62.5001C35.6987 47.1041 52.3427 35.1281 58.9997 41.9711Z" fill="#DC3545"/>
+            <path class='heart-fill' id="Vector" fill-rule="evenodd" clip-rule="evenodd" d="M58.9997 41.9711C65.6567 35.1281 82.3007 47.1026 58.9997 62.5001C35.6987 47.1041 52.3427 35.1281 58.9997 41.9711Z" fill="#DC3545"/>
             </g>
             <defs>
             <filter id="filter0_d_2536_1008" x="0" y="0" width="118" height="118" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
@@ -159,55 +141,23 @@ function addNewCard(data, index, liked) {
     attachLikeEvent(likeButton[index], data[index]['name'], index)
 
 }
+let cards = JSON.parse(localStorage.getItem('cards'))
+console.log(cards);
+console.log(cards.length);
 
-
-if (input.value === '') {
-    let cards = JSON.parse(localStorage.getItem('cards'))
-    if (cards != null) {
-        console.log('!null');
-        let tempIndex = cards.length
-        for (let i = 0; i < data.length; i++) {
-            if (cards[i] != undefined && cards[i] != null) {
-                addNewCard(data, i, cards[i]['like'])
-            } else {
-                addNewCard(data, i)
-            }
-        }
-    } else {
-        for (let i = 0; i < data.length; i++) {
-            addNewCard(data, i)
+if (cards.length != 0) {
+    console.log('!null');
+    
+    for (let i = 0; i < data.length; i++) {
+        if (cards[i] != undefined && cards[i] != null) {
+            addNewCard(data, i, cards[i]['like'])
         }
     }
+} else {
+    console.log('else');
+    section.classList.add('cards__liked_empty')
+    let empty = document.createElement('div')
+    empty.classList.add('empty')
+    empty.innerHTML = `It's empty now`
+    section.appendChild(empty)
 }
-
-form.addEventListener('input', (event) => {
-    event.preventDefault()
-    section.innerHTML = ``
-    console.log('запрос отправлен');
-
-    for (let index = 0; index < 15; index++) {
-        search(Object.keys(data[0])[index])
-    }
-
-
-})
-
-select.addEventListener('change', function () {
-    console.log(((this.value).toLowerCase()))
-    section.innerHTML = ``
-    for (let index = 0; index < data.length; index++) {
-
-        if (String(data[index]['house']).toLowerCase().includes((this.value).toLowerCase())) {
-            let cards = JSON.parse(localStorage.getItem('cards'))
-            dataCopy[0] = data[index]
-            if (cards[index] != undefined && cards[index] != null) {
-                addNewCard(dataCopy, 0, cards[index]['like'])
-            } else {
-                addNewCard(dataCopy, 0)
-            }
-        }
-
-    }
-
-
-})

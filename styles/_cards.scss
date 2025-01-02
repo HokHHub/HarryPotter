@@ -6,8 +6,34 @@
 
 }
 
+.cards__liked {
+    gap: 20px;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(auto-fill, minmax(334px, 1fr));
+
+    &_empty {
+        display: flex;
+    }
+}
+
+.heart-fill {
+    fill: transparent;
+    stroke: #DC3545;
+    transition: fill 0.5s ease-in-out;
+}
+
+.card__like_click .heart-fill {
+    fill: #DC3545;
+}
+
+.card__like_declick .heart-fill {
+    fill: none;
+}
+
 .card {
     width: 334px;
+    position: relative;
     height: 618px;
     flex-shrink: 0;
     border-radius: 4px;
@@ -22,6 +48,15 @@
         object-position: center;
         border-radius: 4px 4px 0px 0px;
         display: block;
+    }
+
+    &__like {
+        position: absolute;
+        top: 0;
+        right: -23px;
+        // max-width: 48px;
+        // max-height: 48px;
+        // flex-shrink: 0;
     }
 
     &__text {
